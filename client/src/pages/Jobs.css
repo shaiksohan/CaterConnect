@@ -1,0 +1,7 @@
+.toolbar{display:flex;gap:10px;margin:25px 0}
+.toolbar input{flex:1}
+.toolbar input,.toolbar select{padding:13px;border:1px solid #ddd;border-radius:8px;background:#fff}
+.joblist{display:grid;gap:15px}
+.empty{text-align:center}
+@media(max-width:850px){.toolbar{flex-wrap:wrap}.toolbar input{min-width:220px}}
+@media(max-width:600px){.toolbar{flex-direction:column}.toolbar input{width:100%;min-width:0}}

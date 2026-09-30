@@ -1,0 +1,8 @@
+.nav{height:70px;background:#fff;border-bottom:1px solid #e8e8e8;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:10}
+.brand{font-size:25px;font-weight:900;text-decoration:none;color:#202124}
+.brand span{color:#e23744}
+.navlinks{display:flex;gap:16px;align-items:center}
+.navlinks a{text-decoration:none;color:#303030;font-weight:650}
+.navButton{border:1px solid #ddd;background:#fff;padding:9px 14px;border-radius:8px}
+@media(max-width:850px){.navlinks{gap:8px}}
+@media(max-width:600px){.nav{padding:0 4%}.navlinks a:not(.btn){display:none}}

@@ -1,0 +1,12 @@
+.hero{max-width:1200px;margin:auto;padding:75px 20px;display:grid;grid-template-columns:1.35fr .8fr;gap:60px;align-items:center}
+.hero h1{font-size:58px;line-height:1.05;margin:12px 0}
+.hero h1 span{color:#e23744}
+.lead{font-size:18px;color:#666;line-height:1.7;max-width:680px}
+.heroCard{background:#fff;border:1px solid #eee;border-radius:18px;padding:30px;box-shadow:0 20px 50px #00000012}
+.heroIcon{font-size:46px}
+.heroCard strong{display:block;color:#e23744;font-size:34px;margin:20px 0}
+.heroCard a,.section a{color:#e23744;font-weight:750;text-decoration:none}
+.features{max-width:1200px;margin:auto;padding:10px 20px 70px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.homeJobs{margin-top:20px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero h1{font-size:40px}.features{grid-template-columns:1fr}}

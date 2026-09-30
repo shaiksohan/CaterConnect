@@ -1,0 +1,8 @@
+.formPage{max-width:760px;margin:auto;padding:45px 20px}
+.form{display:grid;gap:18px}
+.form h1{margin:0}
+.form label{display:grid;gap:7px;font-weight:700}
+.form input,.form textarea,.form select{padding:13px;border:1px solid #ddd;border-radius:8px;background:#fff}
+.form textarea{min-height:110px;resize:vertical}
+.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+@media(max-width:600px){.formGrid{grid-template-columns:1fr}}

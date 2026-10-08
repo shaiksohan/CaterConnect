@@ -1,8 +1,63 @@
-.formPage{max-width:760px;margin:auto;padding:45px 20px}
-.form{display:grid;gap:18px}
-.form h1{margin:0}
-.form label{display:grid;gap:7px;font-weight:700}
-.form input,.form textarea,.form select{padding:13px;border:1px solid #ddd;border-radius:8px;background:#fff}
-.form textarea{min-height:110px;resize:vertical}
-.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-@media(max-width:600px){.formGrid{grid-template-columns:1fr}}
+.formPage{
+  min-height:calc(100vh - 72px);
+  padding:45px 20px 70px;
+}
+.form.card{
+  width:min(760px,100%);
+  margin:auto;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:var(--shadow-lg);
+}
+.form h1{
+  margin:0 0 22px;
+  font-size:32px;
+}
+.form label{
+  display:grid;
+  gap:7px;
+  margin-top:17px;
+}
+.form label small{
+  color:var(--text-muted);
+  font-weight:500;
+}
+.form input,.form select,.form textarea{
+  width:100%;
+}
+.form textarea{
+  min-height:125px;
+}
+.formGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.formGrid label{
+  min-width:0;
+}
+.form .btn{
+  margin-top:25px;
+  min-height:48px;
+}
+.form .btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+@media(max-width:600px){
+  .formPage{
+    padding:30px 14px 50px;
+  }
+  .form.card{
+    padding:22px 18px;
+    border-radius:18px;
+  }
+  .form h1{
+    font-size:27px;
+  }
+  .formGrid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+}

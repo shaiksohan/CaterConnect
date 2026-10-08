@@ -1,6 +1,49 @@
-.formPage{max-width:760px;margin:auto;padding:45px 20px}
-.form{display:grid;gap:18px}
-.form h1{margin:0}
-.form label{display:grid;gap:7px;font-weight:700}
-.form input,.form textarea,.form select{padding:13px;border:1px solid #ddd;border-radius:8px;background:#fff}
-.form textarea{min-height:110px;resize:vertical}
+.formPage{
+  min-height:calc(100vh - 72px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px 60px;
+}
+.form.card{
+  width:min(460px,100%);
+  padding:30px;
+  border-radius:22px;
+  box-shadow:var(--shadow-lg);
+}
+.form h1{
+  margin:0 0 22px;
+  font-size:32px;
+}
+.form label{
+  display:grid;
+  gap:7px;
+  margin-top:16px;
+}
+.form input,.form select{
+  height:46px;
+}
+.form .btn{
+  margin-top:24px;
+  min-height:48px;
+}
+.form .btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+.form .notice{
+  margin-bottom:15px;
+}
+@media(max-width:600px){
+  .formPage{
+    padding:30px 14px 50px;
+  }
+  .form.card{
+    padding:22px 18px;
+    border-radius:18px;
+  }
+  .form h1{
+    font-size:28px;
+  }
+}

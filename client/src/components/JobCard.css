@@ -1,9 +1,131 @@
-.job{display:flex;gap:22px}
-.jobicon{width:120px;min-width:120px;background:#fff0f1;display:grid;place-items:center;font-size:48px;border-radius:10px}
-.grow{flex:1}
-.topRow{align-items:center}
-.job h2{margin:10px 0 8px}
-.job p{color:#666}
-.pay{color:#e23744}
-@media(max-width:850px){.jobicon{width:90px;min-width:90px}}
-@media(max-width:600px){.job{flex-direction:column}.jobicon{width:100%;height:100px}}
+.job.card {
+  display:flex;
+  gap:16px;
+  padding:20px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow-sm);
+  transition:.22s ease;
+}
+
+.job.card:hover {
+  transform:translateY(-4px);
+  border-color:#d9d3ed;
+  box-shadow:var(--shadow-md);
+}
+
+.jobicon {
+  width:52px;
+  height:52px;
+  flex:0 0 52px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:linear-gradient(135deg,#eaf6ff,#f2edff,#fff0f6);
+  font-size:25px;
+}
+
+.job .grow {
+  min-width:0;
+  flex:1;
+}
+
+.job .topRow {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.job .tag {
+  padding:5px 10px;
+  border-radius:999px;
+  background:#f2edff;
+  color:#6d4fd3;
+  font-size:12px;
+  font-weight:700;
+}
+
+.job .pay {
+  font-size:21px;
+  font-weight:800;
+  background:var(--gradient-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.job h2 {
+  margin:10px 0 8px;
+  color:var(--text-primary);
+  font-size:20px;
+  line-height:1.3;
+}
+
+.job p {
+  margin:6px 0;
+  color:var(--text-secondary);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.job .muted {
+  color:var(--text-muted);
+}
+
+.worker-status {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:13px 0;
+  font-size:13px;
+  font-weight:650;
+}
+
+.worker-status span {
+  padding:7px 10px;
+  border-radius:9px;
+  background:#f7f9fc;
+}
+
+.worker-status .spots-left {
+  background:#f0fdf4;
+  color:#15803d;
+}
+
+.job .btn.small {
+  display:inline-flex;
+  margin-top:10px;
+}
+
+@media(max-width:600px) {
+  .job.card {
+    padding:16px;
+    gap:12px;
+  }
+
+  .jobicon {
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+    font-size:21px;
+  }
+
+  .job .topRow {
+    align-items:flex-start;
+  }
+
+  .job .pay {
+    font-size:18px;
+  }
+
+  .job h2 {
+    font-size:18px;
+  }
+
+  .worker-status {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}

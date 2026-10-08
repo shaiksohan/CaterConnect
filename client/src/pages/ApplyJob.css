@@ -1,8 +1,90 @@
-.formPage{max-width:760px;margin:auto;padding:45px 20px}
-.form{display:grid;gap:18px}
-.form h1{margin:0}
-.form label{display:grid;gap:7px;font-weight:700}
-.form input,.form textarea,.form select{padding:13px;border:1px solid #ddd;border-radius:8px;background:#fff}
-.form textarea{min-height:110px;resize:vertical}
-.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-@media(max-width:600px){.formGrid{grid-template-columns:1fr}}
+.formPage {
+  width:min(760px,calc(100% - 28px));
+  margin:auto;
+  padding:45px 0 70px;
+}
+
+.formPage > a {
+  display:inline-flex;
+  margin-bottom:18px;
+  color:var(--primary-purple);
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.formPage > a:hover {
+  color:var(--primary-pink);
+}
+
+.form.card {
+  padding:32px;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:var(--shadow-md);
+}
+
+.form h1 {
+  margin:0 0 8px;
+  font-size:32px;
+  line-height:1.2;
+}
+
+.form > .muted {
+  margin:0 0 25px;
+  padding:11px 13px;
+  background:var(--gradient-soft);
+  border-radius:11px;
+  color:var(--text-secondary);
+  font-size:14px;
+}
+
+.form > label {
+  display:grid;
+  gap:8px;
+  margin-top:20px;
+  color:var(--text-primary);
+  font-size:14px;
+  font-weight:750;
+}
+
+.form textarea {
+  min-height:125px;
+  padding:13px 14px;
+  line-height:1.55;
+}
+
+.form .notice {
+  margin:18px 0;
+}
+
+.form .btn {
+  margin-top:25px;
+  min-height:48px;
+  font-size:15px;
+}
+
+.form .btn:disabled {
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+
+@media(max-width:600px) {
+  .formPage {
+    padding:30px 0 50px;
+  }
+
+  .form.card {
+    padding:21px;
+    border-radius:18px;
+  }
+
+  .form h1 {
+    font-size:26px;
+  }
+
+  .form textarea {
+    min-height:115px;
+  }
+}

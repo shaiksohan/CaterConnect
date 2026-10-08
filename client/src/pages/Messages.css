@@ -1,0 +1,123 @@
+.messages-page{
+  max-width:900px;
+}
+.messages-page>a{
+  display:inline-block;
+  margin-bottom:16px;
+  color:var(--primary-purple);
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+}
+.messages-page>a:hover{color:var(--primary-pink)}
+.messages-header{
+  margin-bottom:18px;
+}
+.messages-header h1{
+  margin:0 0 5px;
+  font-size:34px;
+}
+.messages-header p{
+  margin:0;
+  color:var(--text-muted);
+}
+.messages-card{
+  overflow:hidden;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow-md);
+}
+.messages-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:420px;
+  max-height:560px;
+  overflow-y:auto;
+  padding:22px;
+  background:linear-gradient(180deg,#f8fbff,#faf8ff);
+}
+.message-row{
+  display:flex;
+  width:100%;
+}
+.message-row.mine{justify-content:flex-end}
+.message-row.theirs{justify-content:flex-start}
+.message-bubble{
+  max-width:70%;
+  padding:11px 14px;
+  border-radius:16px;
+  box-shadow:var(--shadow-xs);
+}
+.mine .message-bubble{
+  background:var(--gradient-primary);
+  color:#fff;
+  border-bottom-right-radius:5px;
+}
+.theirs .message-bubble{
+  background:#fff;
+  border:1px solid var(--border);
+  border-bottom-left-radius:5px;
+}
+.message-bubble p{
+  margin:0;
+  line-height:1.5;
+  font-size:14px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.message-bubble small{
+  display:block;
+  margin-top:5px;
+  font-size:10px;
+  opacity:.7;
+  text-align:right;
+}
+.empty-messages{
+  display:grid;
+  place-items:center;
+  align-content:center;
+  flex:1;
+  text-align:center;
+}
+.empty-messages h3{
+  margin:0 0 6px;
+}
+.empty-messages p{
+  margin:0;
+  color:var(--text-muted);
+}
+.message-form{
+  display:flex;
+  gap:10px;
+  padding:14px;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
+.message-form input{
+  flex:1;
+  min-width:0;
+}
+.message-form .btn{
+  min-width:90px;
+}
+.message-form .btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none;
+}
+@media(max-width:600px){
+  .messages-header h1{font-size:29px}
+  .messages-list{
+    min-height:380px;
+    max-height:calc(100vh - 270px);
+    padding:15px;
+  }
+  .message-bubble{max-width:82%}
+  .message-form{padding:10px}
+  .message-form .btn{
+    min-width:70px;
+    padding:9px 12px;
+  }
+}

@@ -1,12 +1,183 @@
-.hero{max-width:1200px;margin:auto;padding:75px 20px;display:grid;grid-template-columns:1.35fr .8fr;gap:60px;align-items:center}
-.hero h1{font-size:58px;line-height:1.05;margin:12px 0}
-.hero h1 span{color:#e23744}
-.lead{font-size:18px;color:#666;line-height:1.7;max-width:680px}
-.heroCard{background:#fff;border:1px solid #eee;border-radius:18px;padding:30px;box-shadow:0 20px 50px #00000012}
-.heroIcon{font-size:46px}
-.heroCard strong{display:block;color:#e23744;font-size:34px;margin:20px 0}
-.heroCard a,.section a{color:#e23744;font-weight:750;text-decoration:none}
-.features{max-width:1200px;margin:auto;padding:10px 20px 70px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.homeJobs{margin-top:20px}
-@media(max-width:850px){.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.hero h1{font-size:40px}.features{grid-template-columns:1fr}}
+.hero{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:45px;
+  align-items:center;
+  min-height:590px;
+  padding:75px max(20px,calc((100vw - 1200px)/2));
+  overflow:hidden;
+  background:linear-gradient(135deg,#f5fbff,#f7f2ff 55%,#fff4f8);
+}
+.hero:before,.hero:after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  filter:blur(2px);
+  pointer-events:none;
+}
+.hero:before{
+  width:320px;height:320px;
+  right:-100px;top:-120px;
+  background:rgba(22,135,232,.10);
+}
+.hero:after{
+  width:280px;height:280px;
+  left:-120px;bottom:-150px;
+  background:rgba(233,30,99,.08);
+}
+.hero>div{position:relative;z-index:1}
+.hero .eyebrow{margin-bottom:14px}
+.hero h1{
+  max-width:700px;
+  margin:0;
+  font-size:clamp(40px,5.5vw,64px);
+}
+.hero h1 span{
+  background:var(--gradient-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero .lead{
+  max-width:650px;
+  margin:22px 0 0;
+  color:var(--text-secondary);
+  font-size:17px;
+  line-height:1.7;
+}
+.hero .actions{margin-top:28px}
+.hero .btn.ghost{
+  background:#fff;
+  color:var(--primary-purple);
+  border:1px solid #ddd8f2;
+  box-shadow:var(--shadow-sm);
+}
+.heroCard{
+  position:relative;
+  padding:32px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:26px;
+  box-shadow:var(--shadow-lg);
+  backdrop-filter:blur(16px);
+}
+.heroCard:before{
+  content:"";
+  position:absolute;
+  width:90px;height:90px;
+  right:-25px;top:-25px;
+  border-radius:50%;
+  background:rgba(233,30,99,.08);
+}
+.heroCard:after{
+  content:"";
+  position:absolute;
+  width:70px;height:70px;
+  left:-20px;bottom:-25px;
+  border-radius:50%;
+  background:rgba(22,135,232,.08);
+}
+.heroIcon{
+  width:64px;height:64px;
+  display:grid;
+  place-items:center;
+  margin-bottom:22px;
+  border-radius:18px;
+  background:var(--gradient-soft);
+  font-size:30px;
+}
+.heroCard h3{
+  margin:0 0 14px;
+  font-size:22px;
+}
+.heroCard strong{
+  display:block;
+  margin-bottom:10px;
+  font-size:27px;
+  background:var(--gradient-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.heroCard p{
+  margin:0 0 20px;
+  color:var(--text-secondary);
+  line-height:1.6;
+}
+.heroCard a{
+  color:var(--primary-purple);
+  font-size:14px;
+  font-weight:750;
+  text-decoration:none;
+}
+.heroCard a:hover{color:var(--primary-pink)}
+.homeJobs{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+.section>.row>a{
+  color:var(--primary-purple);
+  font-size:14px;
+  font-weight:750;
+  text-decoration:none;
+}
+.section>.row>a:hover{color:var(--primary-pink)}
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+  width:min(1200px,calc(100% - 40px));
+  margin:0 auto;
+  padding:0 0 80px;
+}
+.features .card{
+  position:relative;
+  overflow:hidden;
+}
+.features .card:before{
+  content:"";
+  position:absolute;
+  width:80px;height:80px;
+  right:-35px;top:-35px;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(22,135,232,.08),rgba(233,30,99,.08));
+}
+.features h3{
+  position:relative;
+  margin:0 0 10px;
+  font-size:17px;
+}
+.features p{
+  position:relative;
+  margin:0;
+  color:var(--text-secondary);
+  font-size:14px;
+  line-height:1.6;
+}
+@media(max-width:1000px){
+  .hero{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:65px 30px;
+  }
+  .heroCard{max-width:600px}
+  .homeJobs{grid-template-columns:1fr 1fr}
+  .features{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .hero{padding:50px 20px}
+  .hero h1{font-size:40px}
+  .hero .lead{font-size:15px}
+  .hero .actions{flex-direction:column}
+  .hero .actions .btn{width:100%}
+  .heroCard{padding:24px}
+  .homeJobs,.features{grid-template-columns:1fr}
+  .features{width:min(100% - 28px,1200px);padding-bottom:55px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:34px}
+  .heroCard strong{font-size:24px}
+}

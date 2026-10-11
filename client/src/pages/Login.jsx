@@ -9,6 +9,8 @@ export default function Login() {
   const nav = useNavigate();
   const loc = useLocation();
 
+  const [role, setRole] = useState("worker");
+  const [mode, setMode] = useState("login");
   const [email, setEmail] = useState("worker@demo.com");
   const [password, setPassword] = useState("demo123");
   const [msg, setMsg] = useState("");
@@ -28,8 +30,13 @@ export default function Login() {
     try {
       const data = await api("/auth/login", {
         method: "POST",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, role }),
       });
+
+      if (data.user?.role && data.user.role.toLowerCase() !== role) {
+        setMsg(`This account is registered as a ${data.user.role}. Please select the correct role.`);
+        return;
+      }
 
       finishLogin(data);
     } catch (e) {
@@ -48,9 +55,14 @@ export default function Login() {
         method: "POST",
         body: JSON.stringify({
           credential: response.credential,
-          role: "worker",
+          role,
         }),
       });
+
+      if (data.user?.role && data.user.role.toLowerCase() !== role) {
+        setMsg(`This Google account is registered as a ${data.user.role}. Please select the correct role.`);
+        return;
+      }
 
       finishLogin(data);
     } catch (e) {
@@ -64,21 +76,53 @@ export default function Login() {
     setMsg("Google login failed. Please try again.");
   };
 
+  const changeRole = (newRole) => {
+    setRole(newRole);
+    setEmail(newRole === "worker" ? "worker@demo.com" : "provider@demo.com");
+    setPassword("demo123");
+    setMsg("");
+  };
+
   return (
     <>
       <Navbar />
 
       <main className="formPage">
         <form className="card form" onSubmit={submit}>
-          <div className="eyebrow">WELCOME BACK</div>
+          <div className="eyebrow">WELCOME TO CATERCONNECT</div>
 
-          <h1>Login</h1>
-
+          <h1>{mode === "login" ? "Welcome Back!" : "Create Account"}</h1>
+          
           <p className="muted">
-            Demo worker: worker@demo.com / demo123
-            <br />
-            Demo provider: provider@demo.com / demo123
+            {mode === "login"
+              ? "Login to find catering work or manage your catering jobs."
+              : "Join CaterConnect as a worker or catering provider."}
           </p>
+
+          {/* Role selection */}
+          <div className="auth-section">
+            <span className="auth-label">I want to join as</span>
+
+            <div className="auth-toggle">
+              <button
+                type="button"
+                className={role === "worker" ? "active" : ""}
+                onClick={() => changeRole("worker")}
+              >
+                👷 Worker
+              </button>
+
+              <button
+                type="button"
+                className={role === "provider" ? "active" : ""}
+                onClick={() => changeRole("provider")}
+              >
+                🍽️ Provider
+              </button>
+            </div>
+          </div>
+
+          
 
           {msg && <div className="notice error">{msg}</div>}
 
@@ -89,6 +133,7 @@ export default function Login() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
             />
           </label>
 
@@ -99,29 +144,25 @@ export default function Login() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
             />
           </label>
 
           <button className="btn full" disabled={busy}>
-            {busy ? "Logging in…" : "Login"}
+            {busy
+              ? "Please wait..."
+              : mode === "login"
+              ? "Login"
+              : "Register"}
           </button>
 
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              margin: "20px 0",
-              color: "#98a2b3",
-              fontSize: "12px",
-            }}
-          >
-            <span style={{ flex: 1, height: "1px", background: "#e4eaf2" }} />
-            OR
-            <span style={{ flex: 1, height: "1px", background: "#e4eaf2" }} />
+          <div className="auth-divider">
+            <span />
+            OR CONTINUE WITH
+            <span />
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div className="google-login">
             <GoogleLogin
               onSuccess={googleSuccess}
               onError={googleError}
@@ -130,7 +171,25 @@ export default function Login() {
           </div>
 
           <p className="center">
-            Need an account? <Link to="/register">Register</Link>
+            {mode === "login" ? (
+              <>
+                Don't have an account?{" "}
+                <Link to="/register" state={{ role }}>
+                  Register
+                </Link>
+              </>
+            ) : (
+              <>
+                Already have an account?{" "}
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setMode("login")}
+                >
+                  Login
+                </button>
+              </>
+            )}
           </p>
         </form>
       </main>

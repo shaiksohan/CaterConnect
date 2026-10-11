@@ -79,7 +79,18 @@ export default function Register() {
 
           <h1>Create account</h1>
 
-          {msg && <div className="notice error">{msg}</div>}
+<label>
+  Account type
+  <select
+    value={f.role}
+    onChange={(e) => setF({ ...f, role: e.target.value })}
+  >
+    <option value="worker">Worker</option>
+    <option value="provider">Catering Provider</option>
+  </select>
+</label>
+
+{msg && <div className="notice error">{msg}</div>}
 
           <label>
             Name
@@ -119,16 +130,7 @@ export default function Register() {
             />
           </label>
 
-          <label>
-            Account type
-            <select
-              value={f.role}
-              onChange={(e) => setF({ ...f, role: e.target.value })}
-            >
-              <option value="worker">Worker</option>
-              <option value="provider">Catering Provider</option>
-            </select>
-          </label>
+          
 
           <button className="btn full" disabled={busy}>
             {busy ? "Creating…" : "Create Account"}

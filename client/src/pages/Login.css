@@ -5,19 +5,21 @@
   justify-content:center;
   padding:45px 20px 65px;
 }
+
 .form.card{
   width:min(460px,100%);
   padding:32px;
   border-radius:22px;
   box-shadow:var(--shadow-lg);
 }
-.form .eyebrow{
-  margin-bottom:8px;
-}
+
+.form .eyebrow{margin-bottom:8px}
+
 .form h1{
   margin:0 0 8px;
   font-size:34px;
 }
+
 .form>.muted{
   margin:0 0 22px;
   padding:12px;
@@ -26,46 +28,112 @@
   font-size:13px;
   line-height:1.7;
 }
+
+.auth-section{margin:18px 0}
+
+.auth-label{
+  display:block;
+  margin-bottom:9px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--text-muted);
+}
+
+.auth-toggle{
+  display:flex;
+  gap:8px;
+  padding:5px;
+  border-radius:13px;
+  background:#f1f5fb;
+}
+
+.auth-toggle button{
+  flex:1;
+  min-height:42px;
+  border:1px solid transparent;
+  border-radius:10px;
+  background:transparent;
+  color:var(--text-muted);
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.auth-toggle button.active{
+  background:white;
+  color:var(--primary-purple);
+  border-color:#e3e5f5;
+  box-shadow:0 3px 10px #1d2b4d12;
+}
+
 .form label{
   display:grid;
   gap:7px;
   margin-top:16px;
 }
-.form input{
-  height:46px;
-}
+
+.form input{height:46px}
+
 .form .btn{
   margin-top:23px;
   height:48px;
 }
+
 .form .btn:disabled{
   opacity:.6;
   cursor:not-allowed;
   transform:none;
 }
+
+.auth-divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:22px 0;
+  color:#98a2b3;
+  font-size:11px;
+  font-weight:700;
+}
+
+.auth-divider span{
+  flex:1;
+  height:1px;
+  background:#e4eaf2;
+}
+
+.google-login{
+  display:flex;
+  justify-content:center;
+  min-height:40px;
+}
+
 .center{
   margin:20px 0 0;
   text-align:center;
   color:var(--text-muted);
   font-size:14px;
 }
-.center a{
+
+.center a,.text-button{
   color:var(--primary-purple);
   font-weight:750;
   text-decoration:none;
 }
-.center a:hover{
+
+.center a:hover,.text-button:hover{
   color:var(--primary-pink);
 }
+
+.text-button{
+  border:0;
+  padding:0;
+  background:none;
+  font:inherit;
+  cursor:pointer;
+}
+
 @media(max-width:600px){
-  .formPage{
-    padding:30px 14px 50px;
-  }
-  .form.card{
-    padding:23px 18px;
-    border-radius:18px;
-  }
-  .form h1{
-    font-size:29px;
-  }
+  .formPage{padding:30px 14px 50px}
+  .form.card{padding:23px 18px;border-radius:18px}
+  .form h1{font-size:29px}
 }
